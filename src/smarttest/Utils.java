@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package smarttest;
 
-/**
- *
- * @author
- */
+
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
-import java.io.ObjectInputStream; 
+
+import java.io.ObjectInputStream;
+
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.net.HttpURLConnection;
@@ -35,9 +35,10 @@ import java.util.Base64;
 public class Utils {
 
     static final String DRIVER = "com.mysql.jdbc.Driver";
-    static final String URL = "jdbc:mysql://localhost/menu_db";
+
+    static final String URL = "jdbc:mysql://localhost/db";
     static final String USER = "root";
-    static final String PASS = "goodyear123!@#";
+    static final String PASS = "no";
 
     /**
      *
@@ -91,7 +92,9 @@ public class Utils {
         HttpURLConnection con = (HttpURLConnection) urlObj.openConnection();
         con.setRequestMethod("POST");
         con.setRequestProperty("Content-length", String.valueOf(datastr.length()));
-        con.setRequestProperty("Content-Type", "application/x-www- form-urlencoded");
+
+        con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+
         con.setRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0;Windows98;DigExt)");
         con.setDoOutput(true);
         con.setDoInput(true);
@@ -131,11 +134,11 @@ public class Utils {
             while (rs.next()) {
                 res = rs.getString(1);
 
-            }
-
+            } 
             rs.close();
             stmt.close();
             conn.close();
+
         } catch (Exception e) {
             System.out.println(e);
         }

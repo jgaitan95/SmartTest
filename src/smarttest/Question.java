@@ -14,11 +14,24 @@ import java.util.ArrayList;
 public class Question {
     int correctOption;
     int points;
+    String question;
     ArrayList<String> options;
     
+
     public Question(){
         correctOption = 0;
-        points = 1;
+        question = ""
+        points = 0;
         options = new ArrayList<>();
+    }
+
+    
+    public Question(String question, String a, String b, String c, String d, int correctAns){
+        this.question = question;
+        options.add(a);
+        options.add(b);
+        options.add(c);
+        options.add(d);
+        this.correctOption = correctAns;
     }
 }

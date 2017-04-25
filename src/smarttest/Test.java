@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
+
  * @author
  */
 public class Test {
@@ -28,5 +29,6 @@ public class Test {
     public void addQuestion(Question q){
         questions.add(q);
         totalPoints += q.points;
+
     }
 }
