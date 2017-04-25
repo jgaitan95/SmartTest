@@ -18,7 +18,7 @@ import javafx.scene.control.Label;
 
 /**
  *
- * @author Caroline
+ * @author
  */
 public class SmartTest extends Application {
     

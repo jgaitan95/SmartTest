@@ -9,22 +9,29 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Caroline
+ * @author
  */
 public class Question {
+    int correctOption;
+    int points;
+    String question;
+    ArrayList<String> options;
     
-    private ArrayList<String> ans;
-    private int correctAns;
-    private String question;
+
+    public Question(){
+        correctOption = 0;
+        question = ""
+        points = 0;
+        options = new ArrayList<>();
+    }
+
     
     public Question(String question, String a, String b, String c, String d, int correctAns){
         this.question = question;
-        ans = new ArrayList<String>();
-        ans.add(a);
-        ans.add(b);
-        ans.add(c);
-        ans.add(d);
-        this.correctAns = correctAns;
+        options.add(a);
+        options.add(b);
+        options.add(c);
+        options.add(d);
+        this.correctOption = correctAns;
     }
-    
 }

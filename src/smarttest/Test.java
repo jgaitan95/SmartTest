@@ -9,21 +9,26 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Caroline
- * Contains code for managing and creating test objects.
+
+ * @author
  */
 public class Test {
-    private ArrayList<Question> qs;
+    Boolean isDeployed;
+    int totalPoints;
+    ArrayList<Question> questions;
+    ArrayList<LearningOutcome> learningOutcomes;
+    
     
     public Test(){
-        qs = new ArrayList<Question>();
+        isDeployed = false;
+        totalPoints = 0;
+        questions = new ArrayList<>();
+        learningOutcomes = new ArrayList<>();
     }
     
     public void addQuestion(Question q){
-        qs.add(q);
-    }
-    
-    public ArrayList<Question> getQuestions(){
-        return qs;
+        questions.add(q);
+        totalPoints += q.points;
+
     }
 }
