@@ -5,10 +5,28 @@
  */
 package smarttest;
 
+import java.util.ArrayList;
+
 /**
  *
- * @author Caroline
+ * @author
  */
 public class Test {
+    Boolean isDeployed;
+    int totalPoints;
+    ArrayList<Question> questions;
+    ArrayList<LearningOutcome> learningOutcomes;
     
+    
+    public Test(){
+        isDeployed = false;
+        totalPoints = 0;
+        questions = new ArrayList<>();
+        learningOutcomes = new ArrayList<>();
+    }
+    
+    public void addQuestion(Question q){
+        questions.add(q);
+        totalPoints += q.points;
+    }
 }

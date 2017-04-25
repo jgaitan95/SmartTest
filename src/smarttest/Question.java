@@ -5,10 +5,20 @@
  */
 package smarttest;
 
+import java.util.ArrayList;
+
 /**
  *
- * @author Caroline
+ * @author
  */
 public class Question {
+    int correctOption;
+    int points;
+    ArrayList<String> options;
     
+    public Question(){
+        correctOption = 0;
+        points = 1;
+        options = new ArrayList<>();
+    }
 }

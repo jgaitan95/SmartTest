@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Caroline
+ * @author
  */
 public class SmartTest extends Application {
     
