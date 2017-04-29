@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
+
  * @author
  */
 public class Test implements java.io.Serializable{
@@ -30,6 +31,7 @@ public class Test implements java.io.Serializable{
     public void addQuestion(Question q){
         questions.add(q);
         totalPoints += q.points;
+
     }
     
     public void deployTest(){
