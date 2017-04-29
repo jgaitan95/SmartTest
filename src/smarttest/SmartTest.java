@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author
+ * This is main Client Class 
  */
 public class SmartTest extends Application {
     

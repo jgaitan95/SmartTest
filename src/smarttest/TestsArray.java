@@ -9,16 +9,12 @@ import java.util.ArrayList;
 
 /**
  *
- * @author
+ * @author arslanwaheed
  */
-public class Question implements java.io.Serializable{
-    int correctOption;
-    int points;
-    ArrayList<String> options;
+public class TestsArray extends ArrayList<Test> implements java.io.Serializable{
+    ArrayList<Test> testArray;
     
-    public Question(){
-        correctOption = 0;
-        points = 1;
-        options = new ArrayList<>();
+    public TestsArray(){
+        testArray = new ArrayList<>();
     }
 }

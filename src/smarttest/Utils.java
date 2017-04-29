@@ -5,10 +5,7 @@
  */
 package smarttest;
 
-/**
- *
- * @author
- */
+
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -35,7 +32,7 @@ import java.util.Base64;
 public class Utils {
 
     static final String DRIVER = "com.mysql.jdbc.Driver";
-    static final String URL = "jdbc:mysql://localhost/menu_db";
+    static final String URL = "jdbc:mysql://10.22.13.87t/smarttest_db";
     static final String USER = "root";
     static final String PASS = "goodyear123!@#";
 

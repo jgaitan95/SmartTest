@@ -6,8 +6,8 @@
 package smarttest;
 
 /**
- *
- * @author 
+ *  This class will have all the server methods
+ * 
  */
 public class CentralServerAdapter {
     
