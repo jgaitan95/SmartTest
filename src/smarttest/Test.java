@@ -12,14 +12,16 @@ import java.util.ArrayList;
 
  * @author
  */
-public class Test {
+public class Test implements java.io.Serializable{
     Boolean isDeployed;
     int totalPoints;
+    int testID;
     ArrayList<Question> questions;
     ArrayList<LearningOutcome> learningOutcomes;
     
     
     public Test(){
+        testID = 0;
         isDeployed = false;
         totalPoints = 0;
         questions = new ArrayList<>();
@@ -30,5 +32,17 @@ public class Test {
         questions.add(q);
         totalPoints += q.points;
 
+    }
+    
+    public void deployTest(){
+        testID = generateID();
+        isDeployed = true;
+    }
+    
+    
+    private int generateID(){
+        int num;
+        num = (int)(Math.random()*999999999);
+        return num;
     }
 }

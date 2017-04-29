@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author
  */
-public class Question {
+public class Question implements java.io.Serializable{
     int correctOption;
     int points;
     String question;

@@ -9,6 +9,7 @@ package smarttest;
  *
  * @author 
  */
-public class LearningOutcome {
-    
+public class LearningOutcome implements java.io.Serializable{
+    String name;
+    String category;
 }
