@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author
  */
 public class Question implements java.io.Serializable{
-    String LearningOutcome;
+    String learningOutcome;
     int correctOption;
     int points;
     String question;
@@ -20,7 +20,7 @@ public class Question implements java.io.Serializable{
     
 
     public Question(){
-        LearningOutcome = "";
+        learningOutcome = "";
         correctOption = 0;
         question = "";
         points = 0;
