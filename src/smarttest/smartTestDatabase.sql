@@ -14,11 +14,33 @@ CREATE TABLE deployedTests(
 INSERT INTO deployedTests(byteStr) VALUES ("INVALIDSTRINGDATA");
 
 /*
-* undeployed tests table
+* users table
 */
-CREATE TABLE undeployedTests(
+CREATE TABLE users(
     id INT AUTO_INCREMENT PRIMARY KEY,
     byteStr MEDIUMTEXT CHARACTER SET ascii
 );
 
-INSERT INTO undeployedTests(byteStr) VALUES ("INVALIDSTRINGDATA");
+INSERT INTO users(byteStr) VALUES ("INVALIDSTRINGDATA");
+
+/*
+* admins table
+*/
+
+CREATE TABLE admins(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    uname VARCHAR(81),
+    password VARCHAR(81)
+);
+
+INSERT INTO admins(uname,password) VALUES ("arslan","notagoodyear");
+
+/*
+* learningoutcomes table
+*/
+CREATE TABLE learningOutcomes(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    byteStr MEDIUMTEXT CHARACTER SET ascii
+);
+
+INSERT INTO learningOutcomes(byteStr) VALUES ("INVALIDSTRINGDATA");
