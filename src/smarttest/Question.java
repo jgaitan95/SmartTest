@@ -26,4 +26,21 @@ public class Question implements java.io.Serializable{
         points = 0;
         options = new ArrayList<>();
     }
+    
+    //for testing purposes
+    public Question(String question, ArrayList<String> options){
+        learningOutcomes = new ArrayList<>();
+        correctOption = 0;
+        this.question = question;
+        points = 0;
+        this.options = options;
+    }
+    
+    public String toString(){
+        return question;
+    }
+    
+    public ArrayList<String> getOptions(){
+        return options;
+    }
 }
