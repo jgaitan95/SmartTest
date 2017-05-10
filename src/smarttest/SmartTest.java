@@ -20,8 +20,10 @@ public class SmartTest extends Application {
     public void start(Stage primaryStage) {
         //primaryStage.setTitle("Smart Test Login");
 
-        Scene scene = CreateTest.setScene();
+        //Scene scene = CreateTest.setScene();
         //Scene scene = AddLearningOutcomes.setScene();
+        Scene scene = AdminHome.setScene();
+        
         
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -31,9 +33,6 @@ public class SmartTest extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        LearningOutcomesArray loArray = new LearningOutcomesArray();
-        loArray.ReadLearningOutcomes();
-        System.out.println(loArray);
         launch(args);
     }
     
