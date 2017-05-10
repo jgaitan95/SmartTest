@@ -12,15 +12,15 @@ import java.util.ArrayList;
  * @author
  */
 public class Question implements java.io.Serializable{
-    String learningOutcome;
     int correctOption;
     int points;
     String question;
     ArrayList<String> options;
+    ArrayList<LearningOutcome> learningOutcomes;
     
 
     public Question(){
-        learningOutcome = "";
+        learningOutcomes = new ArrayList<>();
         correctOption = 0;
         question = "";
         points = 0;
