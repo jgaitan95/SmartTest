@@ -78,7 +78,7 @@ public class CreateQuestion {
         
         
         
-        Button addButton = new Button("ADD Question");
+        Button addButton = new Button("Save");
         box.getChildren().add(addButton);
         
         addButton.setOnAction((ActionEvent event) -> {
@@ -89,7 +89,11 @@ public class CreateQuestion {
             for(int i=0; i<num; i++){
                 q.options.add(options.get(i).getText());
             }
-            q.learningOutcome = lo.getText();
+            
+            Stage tempStage = new Stage();
+            Scene tempScene = AddLearningOutcomes.setScene(q);
+            tempStage.setScene(tempScene);
+            tempStage.showAndWait();
             
             Stage s = (Stage)addButton.getScene().getWindow();
             s.close();
