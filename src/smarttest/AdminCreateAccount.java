@@ -30,23 +30,27 @@ public class AdminCreateAccount {
         AdminGrid.setPadding(new Insets(10,10,10,10)); //padding is 25 px all around
         
         //TextFields
+        TextField AccountTypeTF = new TextField();
         TextField UsernameTF = new TextField();
         PasswordField PasswordTF = new PasswordField();
-        AdminGrid.add(UsernameTF,1,0);
-        AdminGrid.add(PasswordTF,1,2);
+        AdminGrid.add(UsernameTF,1,2);
+        AdminGrid.add(PasswordTF,1,4);
+        AdminGrid.add(AccountTypeTF,1,0);
         
         //Labels
         Label UserLabel = new Label("Username:");
         Label PassLabel = new Label("Password:");
-        AdminGrid.add(UserLabel,0,0);
-        AdminGrid.add(PassLabel,0,2);
+        Label AccountLabel = new Label("Account Type:");
+        AdminGrid.add(UserLabel,0,2);
+        AdminGrid.add(PassLabel,0,4);
+        AdminGrid.add(AccountLabel,0,0);
         
         //button
         Button CreateButton = new Button("Create");
         HBox cbox = new HBox(10);
         cbox.setAlignment(Pos.CENTER);
         cbox.getChildren().add(CreateButton);
-        AdminGrid.add(cbox,1,3);
+        AdminGrid.add(cbox,1,6);
         
         //Scenes
         Scene scene = new Scene(AdminGrid, 350, 225);
