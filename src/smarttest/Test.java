@@ -28,6 +28,16 @@ public class Test implements java.io.Serializable{
         learningOutcomes = new ArrayList<>();
     }
     
+    //for testing
+    public Test(Question q){
+        testID = 0;
+        isDeployed = false;
+        totalPoints = 0;
+        questions = new ArrayList<>();
+        questions.add(q);
+        learningOutcomes = new ArrayList<>();
+    }
+    
     public void addQuestion(Question q){
         questions.add(q);
         totalPoints += q.points;
@@ -45,4 +55,9 @@ public class Test implements java.io.Serializable{
         num = (int)(Math.random()*999999999);
         return num;
     }
+    
+    public ArrayList<Question> getQuestions(){
+        return questions;
+    }
+    
 }
