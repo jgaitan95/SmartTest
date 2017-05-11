@@ -3,14 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package adminmain;
+package smarttest;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  *
@@ -30,17 +33,38 @@ public class AdminHome {
         //AdminGrid.setGridLinesVisible(false);
         
         //Buttons
-        Button CreateButton = new Button("Create Account");
+        Button createButton = new Button("Create Account");
         HBox cbox = new HBox(10);
         cbox.setAlignment(Pos.CENTER);
-        cbox.getChildren().add(CreateButton);
+        cbox.getChildren().add(createButton);
         AdminGrid.add(cbox,0,0);
         
-        Button ResetButton = new Button("Reset Account");
+        Button resetButton = new Button("Reset Account");
         HBox rbox = new HBox(10);
         rbox.setAlignment(Pos.CENTER);
-        rbox.getChildren().add(ResetButton);
+        rbox.getChildren().add(resetButton);
         AdminGrid.add(rbox,0,2);
+        
+        
+        createButton.setOnAction((ActionEvent event) -> {
+            Stage tempStage = new Stage();
+            Scene tempScene = AdminCreateAccount.setScene();
+            tempStage.setScene(tempScene);
+            tempStage.show();
+            
+            Stage s = (Stage)createButton.getScene().getWindow();
+            s.close();
+        });
+        
+        resetButton.setOnAction((ActionEvent event) -> {
+            Stage tempStage = new Stage();
+            Scene tempScene = AdminResetAccount.setScene();
+            tempStage.setScene(tempScene);
+            tempStage.show();
+            
+            Stage s = (Stage)resetButton.getScene().getWindow();
+            s.close();
+        });
         
         //Scenes
         Scene scene = new Scene(AdminGrid, 350, 225);
