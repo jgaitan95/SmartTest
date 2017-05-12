@@ -10,12 +10,9 @@ package smarttest;
  * @author Justin Sanchez
  */
 public class Admin extends User{
-    Admin(String fn, String ln, String un, String pw ){
-        this.FirstName = fn;
-        this.LastName = ln;
-        this.Username = un;
-        this.Password = pw;
-        this.AccountType = "Admin";        
+    Admin(String f, String l, String u, String p){
+        super(f,l,u,p);
+        this.AccountType = "Admin";    
     }//constructor
     
 }

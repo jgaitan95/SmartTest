@@ -10,13 +10,11 @@ package smarttest;
  * @author Justin Sanchez
  */
 public class Student extends User{
-    Student(String fn, String ln, String un, String pw){
-        this.FirstName = fn;
-        this.LastName = ln;
-        this.Username = un;
-        this.Password = pw;
-        this.AccountType = "Student";
-        
+    //Variables
+    TestsArray TakenTests;
+    Student(String f, String l, String u, String p){
+        super(f,l,u,p);
+        this.AccountType = "Student";    
     }//constructor
     
 }

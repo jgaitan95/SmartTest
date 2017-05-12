@@ -9,11 +9,19 @@ package smarttest;
  *
  * @author Justin Sanchez
  */
-abstract class User {
-    String AccountType;
-    String FirstName;
-    String LastName;
-    String Username; 
-    String Password;    
+class User {
+    //Variables
+    protected String AccountType;
+    protected String FirstName;
+    protected String LastName;
+    protected String Username; 
+    protected String Password; 
+    
+    User(String fn, String ln, String un, String pw ){
+        this.FirstName = fn;
+        this.LastName = ln;
+        this.Username = un;
+        this.Password = pw;
+    }//constructor
 }
 
