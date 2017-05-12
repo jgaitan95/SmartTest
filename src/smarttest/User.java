@@ -23,5 +23,5 @@ class User {
         this.Username = un;
         this.Password = pw;
     }//constructor
-}
+}//User
 

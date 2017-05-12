@@ -13,6 +13,5 @@ public class Admin extends User{
     Admin(String f, String l, String u, String p){
         super(f,l,u,p);
         this.AccountType = "Admin";    
-    }//constructor
-    
-}
+    }//constructor    
+}//Admin

@@ -15,6 +15,5 @@ public class Student extends User{
     Student(String f, String l, String u, String p){
         super(f,l,u,p);
         this.AccountType = "Student";    
-    }//constructor
-    
-}
+    }//constructor  
+}//Student

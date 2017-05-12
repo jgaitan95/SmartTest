@@ -66,7 +66,7 @@ public class AdminHome {
             s.close();
         });
         
-        //Scenes
+        //Scenes     
         Scene scene = new Scene(AdminGrid, 350, 225);
         return scene;
     }
