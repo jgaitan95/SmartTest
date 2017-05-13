@@ -27,7 +27,7 @@ import javafx.stage.Stage;
 
 public class StudentHome {
     
-    public static Scene setScene(){
+    public static Scene setScene(Student s){
         GridPane grid = new GridPane();
         grid.setHgap(10);
         grid.setVgap(10);
