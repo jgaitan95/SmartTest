@@ -7,8 +7,8 @@ USE smarttest_db;
 * deployed tests table
 */
 CREATE TABLE deployedTests(
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    pincode VARCHAR(81),
+    id INT AUTO_INCREMENT ,
+    pincode VARCHAR(81) PRIMARY KEY,
     byteStr MEDIUMTEXT CHARACTER SET ascii
 );
 
@@ -16,10 +16,11 @@ CREATE TABLE deployedTests(
 * users table
 */
 CREATE TABLE users(
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    uname VARCHAR(81),
-    password VARCHAR(81),
-    byteStr MEDIUMTEXT CHARACTER SET ascii
+    id INT AUTO_INCREMENT,
+    uname VARCHAR(81) ,
+    password VARCHAR(81) ,
+    byteStr MEDIUMTEXT CHARACTER SET ascii,
+    PRIMARY KEY (uname)
 );
 
 /*
@@ -27,9 +28,10 @@ CREATE TABLE users(
 */
 
 CREATE TABLE admins(
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT,
     uname VARCHAR(81),
-    password VARCHAR(81)
+    password VARCHAR(81),
+    PRIMARY KEY (uname)
 );
 
 INSERT INTO admins(uname,password) VALUES ("arslan","notagoodyear");
