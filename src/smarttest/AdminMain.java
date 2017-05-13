@@ -33,7 +33,7 @@ public class AdminMain extends Application {
         primaryStage.setScene(AdminScene);
         primaryStage.show();
     }
-
+    
     /**
      * @param args the command line arguments
      */

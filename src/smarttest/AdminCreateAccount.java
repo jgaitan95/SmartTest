@@ -5,15 +5,22 @@
  */
 package smarttest;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -30,30 +37,76 @@ public class AdminCreateAccount {
         AdminGrid.setPadding(new Insets(10,10,10,10)); //padding is 25 px all around
         
         //TextFields
+        TextField FNameTF = new TextField();
+        TextField LNameTF = new TextField();
         TextField AccountTypeTF = new TextField();
         TextField UsernameTF = new TextField();
-        PasswordField PasswordTF = new PasswordField();
-        AdminGrid.add(UsernameTF,1,2);
-        AdminGrid.add(PasswordTF,1,4);
+        TextField PasswordTF = new TextField();
+        AdminGrid.add(FNameTF,1,2);
+        AdminGrid.add(LNameTF,1,4);
+        AdminGrid.add(UsernameTF,1,6);
+        AdminGrid.add(PasswordTF,1,8);
         AdminGrid.add(AccountTypeTF,1,0);
         
         //Labels
+        Label FNameLabel = new Label("First Name:");
+        Label LNameLabel = new Label("Last Name:");
         Label UserLabel = new Label("Username:");
         Label PassLabel = new Label("Password:");
         Label AccountLabel = new Label("Account Type:");
-        AdminGrid.add(UserLabel,0,2);
-        AdminGrid.add(PassLabel,0,4);
+        AdminGrid.add(FNameLabel,0,2);
+        AdminGrid.add(LNameLabel,0,4);
+        AdminGrid.add(UserLabel,0,6);
+        AdminGrid.add(PassLabel,0,8);
         AdminGrid.add(AccountLabel,0,0);
         
         //button
-        Button CreateButton = new Button("Create");
+        Button createButton = new Button("Create");
         HBox cbox = new HBox(10);
         cbox.setAlignment(Pos.CENTER);
-        cbox.getChildren().add(CreateButton);
-        AdminGrid.add(cbox,1,6);
+        cbox.getChildren().add(createButton);
+        AdminGrid.add(cbox,1,10);
+        
+        createButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                User newUser;              
+                Alert confirmation = new Alert(AlertType.INFORMATION);
+                if("Student".equals(AccountTypeTF.getText()) || "student".equals(AccountTypeTF.getText()) )
+                {
+                newUser = new Student(FNameTF.getText(),LNameTF.getText(),UsernameTF.getText(),PasswordTF.getText());
+                confirmation.setContentText("Student account has been created");   
+                }
+                else if ("Teacher".equals(AccountTypeTF.getText()) || "teacher".equals(AccountTypeTF.getText()) )
+                {
+                newUser = new Teacher(FNameTF.getText(),LNameTF.getText(),UsernameTF.getText(),PasswordTF.getText());
+                confirmation.setContentText("Teacher account has been created");    
+                }
+                else if("Admin".equals(AccountTypeTF.getText()) || "admin".equals(AccountTypeTF.getText()) )
+                {
+                newUser = new Admin(FNameTF.getText(),LNameTF.getText(),UsernameTF.getText(),PasswordTF.getText());
+                confirmation.setContentText("Admin account has been created");    
+                }
+                else
+                {
+                    confirmation.setContentText("\""+AccountTypeTF.getText()+"\""+" is not a valid account type"+
+                            "\nAccount types are: Student, Teacher, Admin"+
+                            "\nPlease try again");
+                }
+                Stage tempStage = new Stage();
+                Scene tempScene = AdminHome.setScene();
+                confirmation.setTitle(null);
+                confirmation.setHeaderText(null); 
+                tempStage.setScene(tempScene);
+                tempStage.show();               
+                Stage s = (Stage)createButton.getScene().getWindow();
+                s.close();
+                confirmation.showAndWait();              
+            }
+        });
         
         //Scenes
-        Scene scene = new Scene(AdminGrid, 350, 225);
+        Scene scene = new Scene(AdminGrid, 400, 300);
         return scene;
     }
 }

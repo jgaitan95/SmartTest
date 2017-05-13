@@ -5,15 +5,19 @@
  */
 package smarttest;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  *
@@ -42,11 +46,30 @@ public class AdminResetAccount {
         AdminGrid.add(UsernameTF,1,2);
         
         //Button
-        Button CreateButton = new Button("Reset");
+        Button resetButton = new Button("Reset");
         HBox cbox = new HBox(10);
         cbox.setAlignment(Pos.CENTER);
-        cbox.getChildren().add(CreateButton);
+        cbox.getChildren().add(resetButton);
         AdminGrid.add(cbox,1,4);
+        
+        resetButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {             
+                Alert confirmation = new Alert(Alert.AlertType.INFORMATION);
+                String account = AccountTypeTF.getText();
+                String user = UsernameTF.getText();
+                confirmation.setContentText(user + "'s "+account+" account has been reset" );
+                Stage tempStage = new Stage();
+                Scene tempScene = AdminHome.setScene();
+                confirmation.setTitle(null);
+                confirmation.setHeaderText(null); 
+                tempStage.setScene(tempScene);
+                tempStage.show();               
+                Stage s = (Stage)resetButton.getScene().getWindow();
+                s.close();
+                confirmation.showAndWait();              
+            }
+        });
         
         //Scenes
         Scene scene = new Scene(AdminGrid, 350, 225);
