@@ -9,7 +9,7 @@ package smarttest;
  *
  * @author Justin Sanchez
  */
-class User {
+class User implements java.io.Serializable {
     //Variables
     protected String AccountType;
     protected String FirstName;
