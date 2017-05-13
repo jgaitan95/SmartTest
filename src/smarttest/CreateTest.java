@@ -6,6 +6,8 @@
 package smarttest;
 
 import static java.lang.Integer.parseInt;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -24,50 +26,8 @@ public class CreateTest {
         
         Test newTest = new Test();
         
-        //add two separators
-        Separator separator1 = new Separator();
-        box.getChildren().add(separator1);
-        Separator separator2 = new Separator();
-        box.getChildren().add(separator2);
-        
-        
-        Label addQuestionLabel = new Label("Add Questions");
-        box.getChildren().add(addQuestionLabel);
-        
-        
-        TextField numberOfOptions = new TextField("Enter number of options you want. e.g 2 or 4");
-        box.getChildren().add(numberOfOptions);
-        
-        //add a new question
-        Button addQuestion = new Button("Add Question");
-        box.getChildren().add(addQuestion);
-        
-        //add two separators
-        Separator separator3 = new Separator();
-        box.getChildren().add(separator3);
-        Separator separator4 = new Separator();
-        box.getChildren().add(separator4);
-        
-        //setting up action for addQuestion button
-        //add a new question every time button is clicked
-        addQuestion.setOnAction((ActionEvent event) -> {
-            int num = parseInt(numberOfOptions.getText());
-            Question question = new Question();
+        draw(newTest,box);
 
-            Stage tempStage = new Stage();
-            Scene tempScene = CreateQuestion.setScene(question,num);
-            tempStage.setScene(tempScene);
-            tempStage.showAndWait();
-            
-            newTest.addQuestion(question);
-            box.getChildren().clear();
-            draw(newTest,box);
-        });
-        
-        
-        
-        
-        
         scroll.setContent(box);
         scroll.setFitToWidth(true);
         Scene scene = new Scene(scroll, 800, 600);
@@ -129,7 +89,25 @@ public class CreateTest {
             box.getChildren().clear();
             draw(newTest,box);
         });
+        
+        //upload the test
+        Button uploadTest = new Button("Upload Test");
+        box.getChildren().add(uploadTest);
+        
+        uploadTest.setOnAction((ActionEvent event) -> {
+            String url = "http://10.22.13.87/SmartTestDB.php";
+            
+            String str = Utils.toStr(newTest);
+            String datastr = "op=addToDeployedTests&str="+str+"&pincode="+newTest.testID;
+            
+            try {
+                String response = Utils.httpsPost(url, datastr);
+                System.out.println("Response: "+response);
+                box.getChildren().clear();
+            } catch (Exception ex) {
+                System.out.println("Exception caught: "+ ex);
+            }
+            
+        });
     }
-    
-
 }
