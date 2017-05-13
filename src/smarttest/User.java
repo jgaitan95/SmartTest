@@ -5,11 +5,13 @@
  */
 package smarttest;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Justin Sanchez
  */
-class User implements java.io.Serializable {
+class User implements Serializable{
     //Variables
     protected String AccountType;
     protected String FirstName;

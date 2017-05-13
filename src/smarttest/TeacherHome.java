@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package smarttest;
 
 /**
@@ -10,30 +5,25 @@ package smarttest;
  * @author arslanwaheed
  */
 
-import javafx.application.Application;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.geometry.Orientation;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
 
-public class StudentHome {
+public class TeacherHome {
     
-    public static Scene setScene(Student s){
+    public static Scene setScene(){
         GridPane grid = new GridPane();
         grid.setHgap(10);
         grid.setVgap(10);
         
         //adding name label
-        Label nameLabel = new Label("Student Name");
+        Label nameLabel = new Label("Teacher Name");
         nameLabel.setId("nameLabel");
         nameLabel.autosize();
         grid.add(nameLabel, 25, 0,30,1);
@@ -54,17 +44,18 @@ public class StudentHome {
         Separator separator2 = new Separator();  
         grid.add(separator2,0, 2, 67,1);
         
-        //add text field for pincode
-        TextField pincode = new TextField("Enter pincode for test");
-        grid.add(pincode, 15, 3, 40, 1);
-        
         //add submit button
-        Button submitPincode = new Button("Take Test");
-        grid.addRow(3, submitPincode);
+        Button newTest = new Button("Create Test");
+        grid.addRow(3, newTest);
         
         //setting up action for submit button
-        submitPincode.setOnAction((ActionEvent event) -> {
-            //program what happens when submit clicked
+        newTest.setOnAction((ActionEvent event) -> {
+            Scene makeTest = CreateTest.setScene();
+            
+            Stage primaryStage = new Stage();
+            primaryStage.setTitle("Create Test");
+            primaryStage.setScene(makeTest);
+            primaryStage.showAndWait();
         });
         
         //add a separator
@@ -96,3 +87,4 @@ public class StudentHome {
     
 
 }
+

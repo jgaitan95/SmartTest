@@ -62,17 +62,25 @@ public class LoginPage {
                     AdminHome.setScene();
                 }
                 else {
+                    response = response.substring(0, response.length()-1);
+                    User tempUser = (User)Utils.toObj(response);
                     
+                    if (tempUser.AccountType.equalsIgnoreCase("student")){
+                        StudentHome.setScene((Student)tempUser);
+                    }
+                    else if(tempUser.AccountType.equalsIgnoreCase("teacher")){
+                        
+                    }
                 }
                 
             } catch (Exception ex) {
                 System.out.println("Exception caught: "+ ex);
-            }
+            }/*
             Stage tempStage = new Stage();
             Scene tempScene = StudentHome.setScene();
             tempStage.setScene(tempScene);
             tempStage.show();
-            
+            */
             Stage s = (Stage)submitButton.getScene().getWindow();
             s.close();
         });
