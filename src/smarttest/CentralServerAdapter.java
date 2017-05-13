@@ -36,10 +36,17 @@ public class CentralServerAdapter {
         Utils.execNonQuery(qry);
     }
     
-    protected static String getUser(String username, String password){   
-        String qry = "SELECT byteStr FROM users WHERE uname='"+username+"' AND password='"+password+"'";
-        String empArrObjStr = Utils.execQuery(qry);
-        return empArrObjStr;
+    protected static String getUser(String username, String password){
+        String query = "SELECT id FROM users WHERE uname='"+username+"' AND password='"+password+"'";
+        
+        if (query.equals("1")){
+            return "admin";
+        }
+        else {
+            String qry = "SELECT byteStr FROM users WHERE uname='"+username+"' AND password='"+password+"'";
+            String empArrObjStr = Utils.execQuery(qry);
+            return empArrObjStr;
+        }
     }
     
     protected static void addToDeployedTests(String testString, String pincode){   

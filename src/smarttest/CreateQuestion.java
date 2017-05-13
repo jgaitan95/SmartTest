@@ -61,9 +61,6 @@ public class CreateQuestion {
         Label provideInfoLabel = new Label("Provide Information about this question");
         box.getChildren().add(provideInfoLabel);
         
-        TextField lo = new TextField("Type learning outcome for this question");
-        box.getChildren().add(lo);
-        
         Label correctOptionLabel = new Label("Enter number of correct option");
         box.getChildren().add(correctOptionLabel);
         
@@ -75,8 +72,7 @@ public class CreateQuestion {
         
         TextField pointsForQuestion = new TextField("1");
         box.getChildren().add(pointsForQuestion);
-        
-        
+
         
         Button addButton = new Button("Save");
         box.getChildren().add(addButton);

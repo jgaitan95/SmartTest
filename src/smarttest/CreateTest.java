@@ -90,7 +90,7 @@ public class CreateTest {
             draw(newTest,box);
         });
         
-        //save the test
+        //upload the test
         Button uploadTest = new Button("Upload Test");
         box.getChildren().add(uploadTest);
         
@@ -111,64 +111,3 @@ public class CreateTest {
         });
     }
 }
-/*
-        //add two separators
-        Separator separator1 = new Separator();
-        box.getChildren().add(separator1);
-        Separator separator2 = new Separator();
-        box.getChildren().add(separator2);
-        
-        
-        Label addQuestionLabel = new Label("Add Questions");
-        box.getChildren().add(addQuestionLabel);
-        
-        
-        TextField numberOfOptions = new TextField("Enter number of options you want. e.g 2 or 4");
-        box.getChildren().add(numberOfOptions);
-        
-        //add a new question
-        Button addQuestion = new Button("Add Question");
-        box.getChildren().add(addQuestion);
-        
-        //add two separators
-        Separator separator3 = new Separator();
-        box.getChildren().add(separator3);
-        Separator separator4 = new Separator();
-        box.getChildren().add(separator4);
-        
-        //setting up action for addQuestion button
-        //add a new question every time button is clicked
-        addQuestion.setOnAction((ActionEvent event) -> {
-            int num = parseInt(numberOfOptions.getText());
-            Question question = new Question();
-
-            Stage tempStage = new Stage();
-            Scene tempScene = CreateQuestion.setScene(question,num);
-            tempStage.setScene(tempScene);
-            tempStage.showAndWait();
-            
-            newTest.addQuestion(question);
-            box.getChildren().clear();
-            draw(newTest,box);
-        });
-        
-        
-        //save the test
-        Button uploadTest = new Button("Upload Test");
-        box.getChildren().add(uploadTest);
-        
-        uploadTest.setOnAction((ActionEvent event) -> {
-            String url = "http://10.22.13.87/assignment6.php";
-            
-            String str = Utils.toStr(newTest);
-            String datastr = "op=addToDeployedTests&str="+str+"pincode="+newTest.testID;
-            
-            try {
-                String response = Utils.httpsPost(url, datastr);
-                System.out.println(response);
-            } catch (Exception ex) {
-                Logger.getLogger(CreateTest.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        });
-        
-        */
