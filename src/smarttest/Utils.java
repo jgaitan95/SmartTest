@@ -35,7 +35,7 @@ public class Utils {
     static final String DRIVER = "com.mysql.jdbc.Driver";
     static final String URL = "jdbc:mysql://10.22.13.87/smarttest_db";
     static final String USER = "root";
-    static final String PASS = "no";
+    static final String PASS = "goodyear123!@#";
 
     /**
      *
@@ -64,8 +64,8 @@ public class Utils {
     public static Object toObj(String str) {
         Object obj = null;
         try {
-            //String sDecoded = URLDecoder.decode(str, "UTF-8");
-            byte[] barr = Base64.getDecoder().decode(str);
+            String sDecoded = URLDecoder.decode(str, "UTF-8");
+            byte[] barr = Base64.getDecoder().decode(sDecoded);
             ByteArrayInputStream bios = new ByteArrayInputStream(barr);
             ObjectInputStream ois = new ObjectInputStream(bios);
             obj = ois.readObject();
@@ -89,16 +89,14 @@ public class Utils {
         HttpURLConnection con = (HttpURLConnection) urlObj.openConnection();
         con.setRequestMethod("POST");
         con.setRequestProperty("Content-length", String.valueOf(datastr.length()));
-
         con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-
         con.setRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0;Windows98;DigExt)");
         con.setDoOutput(true);
         con.setDoInput(true);
 
         //2. send request out
         DataOutputStream oos = new DataOutputStream(con.getOutputStream());
-        oos.writeChars(datastr);
+        oos.writeBytes(datastr);
         oos.close();
 
         //3. collect the https response

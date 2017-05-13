@@ -21,7 +21,7 @@ public class Test implements java.io.Serializable{
     
     
     public Test(){
-        testID = 0;
+        testID = generateID();
         isDeployed = false;
         totalPoints = 0;
         questions = new ArrayList<>();
@@ -30,7 +30,7 @@ public class Test implements java.io.Serializable{
     
     //for testing
     public Test(Question q){
-        testID = 0;
+        testID = generateID();
         isDeployed = false;
         totalPoints = 0;
         questions = new ArrayList<>();

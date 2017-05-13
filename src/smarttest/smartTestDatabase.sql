@@ -8,20 +8,19 @@ USE smarttest_db;
 */
 CREATE TABLE deployedTests(
     id INT AUTO_INCREMENT PRIMARY KEY,
+    pincode VARCHAR(81),
     byteStr MEDIUMTEXT CHARACTER SET ascii
 );
-
-INSERT INTO deployedTests(byteStr) VALUES ("INVALIDSTRINGDATA");
 
 /*
 * users table
 */
 CREATE TABLE users(
     id INT AUTO_INCREMENT PRIMARY KEY,
+    uname VARCHAR(81),
+    password VARCHAR(81),
     byteStr MEDIUMTEXT CHARACTER SET ascii
 );
-
-INSERT INTO users(byteStr) VALUES ("INVALIDSTRINGDATA");
 
 /*
 * admins table

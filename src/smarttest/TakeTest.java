@@ -31,7 +31,8 @@ public class TakeTest {
     private static Label question = new Label();
     private static ArrayList<Button> answers = new ArrayList<Button>();
     
-    public static Scene setScene(){
+    public static Scene setScene(Test test){
+        qs = test.getQuestions();
         VBox box = new VBox();
         ScrollPane scroll = new ScrollPane();
         
