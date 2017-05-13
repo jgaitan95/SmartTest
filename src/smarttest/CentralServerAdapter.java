@@ -28,6 +28,12 @@ public class CentralServerAdapter {
                 addUser(args[1],args[2],args[3]);
                 System.out.println("Success!");
                 break;
+            case "updateUser" :
+                System.out.println(updateUser(args[1],args[2],args[3]));
+                break;
+            case "resetPassword" :
+                System.out.println(resetPassword(args[1]));
+                break;
         }
     }
     
@@ -37,15 +43,15 @@ public class CentralServerAdapter {
     }
     
     protected static String getUser(String username, String password){
-        String query = "SELECT id FROM users WHERE uname='"+username+"' AND password='"+password+"'";
+        String query = "SELECT id FROM admins WHERE uname='"+username+"' AND password='"+password+"'";
         
         if (query.equals("1")){
             return "admin";
         }
         else {
             String qry = "SELECT byteStr FROM users WHERE uname='"+username+"' AND password='"+password+"'";
-            String empArrObjStr = Utils.execQuery(qry);
-            return empArrObjStr;
+            String objStr = Utils.execQuery(qry);
+            return objStr;
         }
     }
     
@@ -56,7 +62,30 @@ public class CentralServerAdapter {
     
     protected static String getFromDeployedTests(String pincode){   
         String qry = "SELECT byteStr FROM deployedTests WHERE pincode='"+pincode+"'";
-        String empArrObjStr = Utils.execQuery(qry);
-        return empArrObjStr;
-    } 
+        String objStr = Utils.execQuery(qry);
+        return objStr;
+    }
+    
+    protected static String updateUser(String username, String password, String userString){
+        String qry = "UPDATE byteStr SET byteStr='" + userString + "' WHERE uname='"+username+"' AND password='"+password+"'";
+        return "Success!";
+    }
+    
+    protected static String resetPassword(String username){
+        String qry = "SELECT byteStr FROM users WHERE uname='"+username+"'";
+        if(qry != null && qry != ""){
+            String objStr = Utils.execQuery(qry);
+            objStr = objStr.substring(0,objStr.length()-1);
+            User tempUser = (User)Utils.toObj(objStr);
+            String oldPassword = tempUser.Password;
+            tempUser.Password = "csc190";
+            String str = Utils.toStr(tempUser);
+            updateUser(tempUser.Username,oldPassword,str);
+            return "Success!";
+        }
+        else {
+            return "No user with this username exists!";
+        }
+        
+    }
 }
